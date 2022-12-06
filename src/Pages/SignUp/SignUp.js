@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
+import useToken from "../../components/hooks/useToken";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const SignUp = () => {
   const {
@@ -9,9 +12,56 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
 
+  const { createUser, updateUser } = useContext(AuthContext);
+  const [signUpError, setSignUpError] = useState("");
+  const [createdUserEmail, setCreatedUserEmail] = useState('')
+  const [token] = useToken(createdUserEmail)
+
+  const navigate = useNavigate();
+  if(token) {
+    navigate('/')
+  }
+
   const handleSignUp = (data) => {
-    console.log(data);
+    setSignUpError("");
+
+    createUser(data.email, data.password)
+      .then((result) => {
+        const user = result.user;
+        toast("user created successfully");
+
+        const userInfo = {
+          displayName: data.name,
+        };
+
+        updateUser(userInfo)
+          .then(() => {
+            saveUser(data.name, data.email);
+          })
+          .catch((err) => console.error(err));
+      })
+      .catch((err) => {
+        console.error(err);
+        setSignUpError(err.message);
+      });
   };
+
+  const saveUser = (name, email) => {
+    const user = { name, email };
+    fetch("https://doctors-portal-server-ahm-rubayed.vercel.app/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setCreatedUserEmail(email)
+      });
+  };
+
   return (
     <div className="h-[400px] flex justify-center items-center my-32">
       <div className="w-96 p-7">
@@ -80,6 +130,7 @@ const SignUp = () => {
             type="submit"
           />
         </form>
+        {signUpError && <p className="text-red-500 mt-3">{signUpError}</p>}
         <p>
           Already have an account{" "}
           <Link className="text-secondary" to="/login">

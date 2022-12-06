@@ -1,17 +1,23 @@
+import {useQuery} from  '@tanstack/react-query'
 import React, { useEffect, useState } from "react";
 import { format } from "date-fns";
 import AppointmentOption from "./AppointmentOption";
 import BookingModal from "../BookingModal/BookingModal";
 
 const AppointmentAvailable = ({ selectedDate }) => {
-  const [appointmentOptions, setAppointmentOptions] = useState([]);
+  // const [appointmentOptions, setAppointmentOptions] = useState([]);
   const [treatment, setTreatment] = useState(null)
+  const date = format(selectedDate, "PP")
 
-  useEffect(() => {
-    fetch("appointmentOptions.json")
-      .then((res) => res.json())
-      .then((data) => setAppointmentOptions(data));
-  }, []);
+  const {data: appointmentOptions = [], refetch} = useQuery({
+    queryKey: ['appointmentOptions', date],
+    queryFn: async() => {
+      const res = await fetch(`https://doctors-portal-server-ahm-rubayed.vercel.app/appointmentOptions?date=${date}`);
+      const data = await res.json()
+      return data
+    }
+  })
+
   return (
     <div className="my-24 max-w-screen-xl mx-auto">
       <p className="text-secondary text-center text-bold text-lg">
@@ -32,6 +38,7 @@ const AppointmentAvailable = ({ selectedDate }) => {
         selectedDate={selectedDate}
         treatment={treatment}
         setTreatment={setTreatment}
+        refetch={refetch}
       ></BookingModal>
       }
     </div>
