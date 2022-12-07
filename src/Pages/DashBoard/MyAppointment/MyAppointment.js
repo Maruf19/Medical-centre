@@ -21,8 +21,8 @@ const MyAppointment = () => {
     }
 })
   return (
-    <div>
-      <h3 className="text-3xl">MyAppintment</h3>
+    <div className="px-16">
+      <h3 className="text-3xl">My Appointment</h3>
       <div className="overflow-x-auto mt-8">
         <table className="table w-full">
           <thead>
@@ -42,10 +42,12 @@ const MyAppointment = () => {
                 <td>{booking.patient}</td>
                 <td>{booking.treatment}</td>
                 <td>{booking.appointmentDate}</td>
-                <td>{booking.slot}</td>
+                <td className="">{booking.slot}</td>
                 <td>
                   {
-                    booking.price && !booking.paid && <Link to={`/dashboard/payment/${booking._id}`}><button className="btn btn-primary btn-xs">Pay</button></Link>
+                    booking.price && !booking.paid && <Link to={`/dashboard/payment/${booking._id}`}>
+                      <button className="btn btn-primary btn-md text-white">Pay</button>
+                      </Link>
                   }
                   {
                     booking.price && booking.paid && <span className="text-primary">Paid</span>

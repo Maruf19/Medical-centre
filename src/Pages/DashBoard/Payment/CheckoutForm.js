@@ -116,8 +116,7 @@ const CheckoutForm = ({ booking }) => {
         <button
           className="btn btn-md mt-6 bg-primary text-white border-0"
           type="submit"
-          disabled={!stripe || !clientSecret || processing}
-        >
+          disabled={!stripe || !clientSecret || processing}>
           Pay
         </button>
       </form>

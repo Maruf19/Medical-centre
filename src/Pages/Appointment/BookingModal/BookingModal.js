@@ -33,9 +33,6 @@ const BookingModal = ({
       price
     };
 
-    // TODO: send data to the server
-    // and once data is saved then close the modal
-    // and display success toast
 
     fetch("https://doctors-portal-server-ahm-rubayed.vercel.app/bookings", {
       method: "POST",
@@ -66,15 +63,13 @@ const BookingModal = ({
         <div className="modal-box relative">
           <label
             htmlFor="booking-modal"
-            className="btn btn-sm btn-circle absolute right-2 top-2"
-          >
+            className="btn btn-sm btn-circle absolute right-2 top-2">
             ✕
           </label>
           <h3 className="text-lg font-bold">{treatmentName}</h3>
           <form
             onSubmit={handleBooking}
-            className="grid grid-cols-1 gap-3 mt-10"
-          >
+            className="grid grid-cols-1 gap-3 mt-10">
             <input
               type="text"
               disabled
@@ -104,7 +99,7 @@ const BookingModal = ({
             />
             <input
               name="phone"
-              type="text"
+              type="number"
               placeholder="Phone Number"
               className="input w-full input-bordered"
             />

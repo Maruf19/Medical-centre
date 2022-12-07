@@ -10,18 +10,17 @@ const DashBoardLayout = () => {
   return (
     <div>
       <Header></Header>
-      <div className="drawer drawer-mobile">
+      <div className="drawer drawer-mobile mt-6">
         <input
           id="dashboard-drawer"
           type="checkbox"
-          className="drawer-toggle"
-        />
+          className="drawer-toggle"/>
         <div className="drawer-content flex flex-col">
           <Outlet></Outlet>
         </div>
         <div className="drawer-side">
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+          <ul className="menu p-4 w-80 text-base-content">
             <li>
               <Link to="/dashboard">MyAppointment</Link>
             </li>

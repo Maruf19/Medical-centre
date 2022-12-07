@@ -29,7 +29,7 @@ const Allusers = () => {
       });
   };
   return (
-    <div>
+    <div className="px-16">
       <h3 className="text-3xl">All Users</h3>
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full">
