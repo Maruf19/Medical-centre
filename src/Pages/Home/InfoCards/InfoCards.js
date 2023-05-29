@@ -15,15 +15,15 @@ const InfoCards = () => {
         },
         {
             id: 2,
-            name: 'Our Locations',
-            description: 'Open 9.00 am to 5.00pm everyday',
+            name: 'Our Location',
+            description: 'Fazil Chist, Shubidbazar, Sylhet, 3100',
             icon: marker,
             bgClass: 'bg-accent'
         },
         {
             id: 3,
-            name: 'Contact Us',
-            description: 'Open 9.00 am to 5.00pm everyday',
+            name: 'Contact Info',
+            description: '01709963727',
             icon: phone,
             bgClass: 'bg-gradient-to-r from-primary to-secondary'
         },

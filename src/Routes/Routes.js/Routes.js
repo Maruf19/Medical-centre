@@ -1,4 +1,5 @@
 import DashBoardLayout from "../../Layout/DashBoardLayout"
+import About from "../../Pages/About/About"
 import Appointment from "../../Pages/Appointment/Appointment/Appointment"
 import AddDoctor from "../../Pages/DashBoard/AddDoctor/AddDoctor"
 import Allusers from "../../Pages/DashBoard/AllUsers/Allusers"
@@ -6,6 +7,7 @@ import ManageDoctors from "../../Pages/DashBoard/ManageDoctors/ManageDoctors"
 // import DashBoard from "../../Pages/DashBoard/DashBoard/DashBoard"
 import MyAppointment from "../../Pages/DashBoard/MyAppointment/MyAppointment"
 import Payment from "../../Pages/DashBoard/Payment/Payment"
+import Contact from "../../Pages/Home/Contact/Contact"
 import DisplayError from "../../Pages/Shared/DisplayError/DisplayError"
 import SignUp from "../../Pages/SignUp/SignUp"
 import AdminRoute from "../AdminRoute/AdminRoute"
@@ -37,6 +39,16 @@ const router = createBrowserRouter([
             {
                 path: "/appointment",
                 element: <Appointment></Appointment>
+            },
+
+            {
+                path: "/Contact",
+                element: <Contact></Contact>
+            },
+
+            {
+                path: "/about",
+                element: <About></About>
             }
         ]
     },

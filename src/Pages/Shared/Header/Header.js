@@ -69,7 +69,7 @@ const Header = () => {
           </ul>
         </div>
         <Link to='/' className="btn btn-ghost normal-case text-xl">
-          Doctors Portal
+        Dental Medical Care
         </Link>
       </div>
       <div className="navbar-end hidden lg:flex">

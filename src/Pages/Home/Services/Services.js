@@ -10,20 +10,20 @@ const Services = () => {
       id: 1,
       title: "Fluoride Treatment",
       description:
-        "Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the",
+        "We provide professional fluoride treatment services to help protect and strengthen your teeth.",
       icon: teeth,
     },
     {
       id: 2,
       title: "Cavity Filling",
       description:
-        "Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the",
+        "We offer professional cavity filling services to restore and protect your teeth from the damaging effects of tooth decay.",
       icon: cavity,
     },
     {
       id: 3,
       title: "Teeth Whitening",
-      description: "Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the",
+      description: "We offer professional teeth whitening services to help you achieve a brighter, whiter smile.",
       icon: whitening,
     },
   ];

@@ -1,6 +1,6 @@
 import React from "react";
 import appointmentBg from "../../../assets/images/appointment.png"
-import doctor from "../../../assets/images/doctor.png";
+import doctor from "../../../assets/images/img-dentist-1.png";
 import PrimaryButton from "../../../components/PrimaryButton/PrimaryButton";
 
 const AppointmentHome = () => {
